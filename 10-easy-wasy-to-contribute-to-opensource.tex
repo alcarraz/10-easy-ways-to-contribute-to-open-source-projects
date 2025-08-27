@@ -1,0 +1,244 @@
+\documentclass{presentacion}
+
+\usepackage[utf8]{inputenc}
+
+\hypersetup{pdfpagemode=FullScreen}
+
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+
+\usepackage{changepage} % provee adjustwidth
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\epstopdfsetup{update} % only regenerate pdf files when eps file is newer
+
+\usefonttheme{structurebold} % using non standard fonts for beamer
+
+\addtobeamertemplate{frametitle}{
+   \let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+   \let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+  \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+  \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+   
+\AtBeginSection[]
+{  
+  \begin{frame}
+    \frametitle{Índice}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\title[Contributing to Open Source] 
+{10 Easy Ways to Contribute to Open Source Projects}
+\subtitle{With Real Life Examples}
+\author{Andrés Alcarraz}
+\date{\today}
+
+% configuración de tema
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+\usepackage{worldflags}
+\flagsdefault[width=1em, framewidth=0px]
+
+\begin{document}
+\frame{\titlepage}
+
+\section{Why Contributing?}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item \textbf{Learning:} Understand projects deeply by contributing
+        \item \textbf{Recognition:} Get known by project maintainers and users  
+        \item \textbf{Community:} Become part of something bigger
+        \item \textbf{Skills:} Build experience that advances your career
+        \item \textbf{Impact:} Make software better for everyone
+    \end{itemize}
+    \vspace{1em}
+    \uncover<6->{\textbf{You only need to be willing to contribute and pay attention!}}
+\end{frame}
+
+\section{Getting Started - The Easy Wins}
+
+\subsection{Documentation Improvements}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Fix typos and unclear instructions
+        \item Add missing examples
+        \item Clarify confusing sections
+        \item Document undocumented features
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Example:} \small\link{https://github.com/jpos/jPOS/pull/467}{Documented missing feature by extracting examples from source code}}
+\end{frame}
+
+\subsection{Bug Reporting}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Use the software, find issues
+        \item Provide clear reproduction steps
+        \item Include relevant system details
+        \item Be thorough, and you'll need to be patient
+        \item If you have some idea, suggest possible fixes.
+    \end{itemize}  
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Example:}
+    \small\link{https://github.com/gradle/gradle-completion/issues/137}{Gradle completion bug on a just created multi module project}}
+\end{frame}
+
+\subsection{Translations}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Native speakers spot translation errors easily
+        \item There are common issues: verbs that can also be nouns depending on context.
+        \item Start translation for unsupported languages
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Example:}
+    \small\link{https://github.com/GSConnect/gnome-shell-extension-gsconnect/pull/1561}{GSConnect Spanish fix}}
+\end{frame}
+
+\section{Community Engagement}
+
+\subsection{Issue Triage}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Help maintainers organize issues
+        \item Verify reported problems
+        \item Add additional information
+        \item Redirect questions to proper channels
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Example:} 
+    \small\link{https://github.com/jpos/jPOS/issues/535\#issuecomment-1539188264}{jPOS issue triage}}
+\end{frame}
+
+\subsection{User Support}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Join support channels (forums, mailing lists, chat)
+        \item Answer questions based on your experience
+        \item Help troubleshoot problems
+        \item You don't need to be right to be helpful!
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Example:} 
+    \small\link{https://groups.google.com/g/jpos-users/c/ZHTk7mDKLy4}{jPOS mailing list help}}
+\end{frame}
+
+\section{Technical Contributions}
+
+\subsection{Testing \& Quality Assurance}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Test new features in your environment
+        \item Verify bug fixes work
+        \item Run regression tests
+        \item Subscribe to repository notifications
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Pro tip:} Subscribe to repos you're interested in to catch issues early}
+\end{frame}
+
+\subsection{Code Reviews}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Review pull requests and commits
+        \item Learn by reading others' code
+        \item Spot potential issues
+        \item Suggest improvements
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Example:} After giving 
+    \small\link{https://github.com/jpos/jPOS/commit/2fb4fac06f76b16ebef95a699ba1a96271024f2c}{feedback in a jPOS commit }
+    the author \small\link{https://github.com/jpos/jPOS/commit/77b7bb68c887237eb9ef54e54bfc48ae941470be}{fixed it}}
+\end{frame}
+
+\subsection{Feature Suggestions}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Propose missing features you need
+        \item Provide clear use cases
+        \item Suggest implementation approaches
+        \item Use proper channels (discussions, issues)
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Example:} jPOS feature requests
+    \small\link{https://github.com/jpos/jPOS/discussions/525}{for loading environments from different directories} ~
+    \small\link{https://github.com/jpos/jPOS/discussions/546}{and for globally replace environment properties}}
+\end{frame}
+
+\section{Beyond Code}
+
+\subsection{Design \& UX Contributions}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Suggest visual improvements
+        \item Create mockups and designs
+        \item Propose workflow enhancements
+        \item UX isn't just about visuals
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Remember:} Even small UX suggestions can have big impact}
+\end{frame}
+
+\subsection{Spreading the Word}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Write blog posts about projects you use
+        \item Share success stories
+        \item Present at conferences and meetups
+        \item Promote on social media
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{This presentation} is spreading the word about jPOS, GSConnect, and others!}
+\end{frame}
+
+\section{Getting Started Today}
+
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Pick a project you already use
+        \item Start with documentation - easiest entry point
+        \item Subscribe to notifications
+        \item Be patient and helpful
+        \item \textbf{Just start!} Small contributions matter
+    \end{itemize}
+    
+    \vspace{2em}
+    \uncover<6->{\large\textbf{Questions?}}
+\end{frame}
+
+\section{Contact}
+\begin{frame}
+    \begin{center}
+        \vspace{1em}
+        \email{alcarraz@gmail.com}\\
+        \vspace{0.5em}
+        \linkedin{andresalcarraz}\\
+        \vspace{0.5em}
+        \twitter{andresalcarraz}\\
+        \vspace{0.5em}
+        \github{alcarraz}\\
+        \vspace{1em}
+        
+        \large\textbf{Thank you!}
+    \end{center}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,272 @@
+\documentclass{presentacion}
+
+\usepackage[utf8]{inputenc}
+
+\hypersetup{pdfpagemode=FullScreen}
+
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+
+\usepackage{changepage} % provee adjustwidth
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\epstopdfsetup{update} % only regenerate pdf files when eps file is newer
+
+\usefonttheme{structurebold} % using non standard fonts for beamer
+
+\addtobeamertemplate{frametitle}{
+   \let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+   \let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+  \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+  \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+   
+\AtBeginSection[]
+{  
+  \begin{frame}
+    \frametitle{Índice}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\title[Contribuir en Open Source] 
+{10 Formas Fáciles de Contribuir con Proyectos de Código Abierto}
+\subtitle{Con Ejemplos de la Vida Real}
+\author{Andrés Alcarraz}
+\date{\today}
+
+% configuración de tema
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+\usepackage{worldflags}
+\flagsdefault[width=1em, framewidth=0px]
+
+\usepackage{tikz}
+\usebackgroundtemplate%
+{
+  \tikz[overlay,remember picture] 
+  \node[opacity=0.2, at=(current page.south east),anchor=south east,inner sep=.3em] {
+    \includegraphics[width=10em]{img/qr-code}
+    \vspace{10em}
+    };
+}
+
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+ \begin{itemize} [<+->]
+  \item ¿Quienes de ustedes usan proyectos open source?
+  \item ¿Quienes quieren contribuir a proyectos open source? 
+  \item ¿Por qué?
+  \item ¿Quienes han contribuido?
+ \end{itemize}
+
+\end{frame}
+
+\section{¿Por qué Contribuir?}
+\begin{frame}
+    Porque no solo de escribir código vive el desarrollador.
+    \pause
+    \begin{itemize}[<+->]
+        \item \textbf{Aprendizaje:} Al contribuir vamos entendiendo el proyecto en profundidad.
+        \item \textbf{Reconocimiento:} Hacerte conocido por mantenedores y usuarios
+        \item \textbf{Comunidad:} Formar parte de algo más grande
+        \item \textbf{Habilidades:} Construir experiencia para avanzar en tu carrera
+        \item \textbf{Impacto:} Mejorar los proyectos para todos
+    \end{itemize}
+    \vspace{1em}
+    \uncover<7->{\textbf{¡Solo necesitas estar dispuesto a hacerlo y prestar atención!}}
+\end{frame}
+
+\section{Empezando - Las Victorias Fáciles}
+
+\subsection{Mejoras en Documentación}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Corregir errores tipográficos e instrucciones poco claras
+        \item Agregar ejemplos faltantes
+        \item Aclarar secciones confusas
+        \item Documentar funcionalidades no documentadas
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Ejemplo:} \small\link{https://github.com/jpos/jPOS/pull/467}{Documentación de una funcionalidad extrayendo ejemplos del código fuente}}
+\end{frame}
+
+\subsection{Reporte de Errores}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Usar el software, encontrar problemas
+        \item Proveer pasos claros para reproducir
+        \item Incluir detalles relevantes del sistema
+        \item Ser minucioso, necesitarás ser paciente para hacerlo bien
+        \item Si tienes alguna idea, sugerir posibles soluciones. Si te sientes osado, puede ser en forma de PR.
+    \end{itemize}  
+    
+    \vspace{1em}
+    \uncover<6->{\textbf{Ejemplo:}
+    \small\link{https://github.com/gradle/gradle-completion/issues/137}{Error de completado de Gradle en un proyecto multi-módulo recién creado}}
+\end{frame}
+
+\subsection{Traducciones}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Los hablantes nativos detectan errores de traducción fácilmente
+        \item Hay problemas comunes: verbos que también pueden ser sustantivos dependiendo del contexto
+        \item Iniciar la traducción si no está soportado
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<4->{\textbf{Ejemplo:}
+    \small\link{https://github.com/GSConnect/gnome-shell-extension-gsconnect/pull/1561}{Corrección en español de GSConnect}}
+\end{frame}
+
+\section{Participación en la Comunidad}
+
+\subsection{Triaje de Issues}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Ayudar a los mantenedores a organizar issues
+        \item Verificar problemas reportados
+        \item Agregar información adicional
+        \item Redirigir preguntas a los canales apropiados
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Ejemplo:} 
+    \small\link{https://github.com/jpos/jPOS/issues/535\#issuecomment-1539188264}{Triaje de issue en jPOS}}
+\end{frame}
+
+\subsection{Soporte a Usuarios}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Unirse a canales de soporte (foros, listas de correo, chat)
+        \item Responder preguntas basándose en tu experiencia
+        \item Ayudar a solucionar problemas
+        \item ¡No necesitas tener razón para ser útil!
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Ejemplo:} 
+    \small\link{https://groups.google.com/g/jpos-users/c/ZHTk7mDKLy4}{Ayuda en la lista de correos de jPOS}}
+\end{frame}
+
+\section{Contribuciones Técnicas}
+
+\subsection{Testing y Aseguramiento de Calidad}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Probar nuevas funciones en tu entorno
+        \item Verificar que las correcciones de errores funcionen
+        \item Ejecutar pruebas de regresión
+        \item Suscribirse a notificaciones del repositorio
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Consejo:} Suscríbete a repositorios que te interesen para detectar problemas temprano}
+\end{frame}
+
+\subsection{Revisión de Código}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Revisar pull requests y commits
+        \item Aprender leyendo el código de otros
+        \item Detectar problemas potenciales
+        \item Sugerir mejoras
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Ejemplo:} Después de dar 
+    \small\link{https://github.com/jpos/jPOS/commit/2fb4fac06f76b16ebef95a699ba1a96271024f2c}{retroalimentación en un commit de jPOS}
+    el autor \small\link{https://github.com/jpos/jPOS/commit/77b7bb68c887237eb9ef54e54bfc48ae941470be}{lo corrigió}}
+\end{frame}
+
+\subsection{Sugerencias de Funcionalidadess}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Proponer funcionalidades que necesitas
+        \item Proveer casos de uso claros
+        \item Sugerir enfoques de implementación
+        \item Usar canales apropiados (discusiones, issues)
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Ejemplo:} Solicitudes de funciones para jPOS
+    \small\link{https://github.com/jpos/jPOS/discussions/525}{para cargar ambientes desde diferentes directorios} ~
+    \small\link{https://github.com/jpos/jPOS/discussions/546}{y para reemplazar globalmente propiedades de ambiente}}
+\end{frame}
+
+\section{Más Allá del Código}
+
+\subsection{Contribuciones de Diseño y UX}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Sugerir mejoras visuales
+        \item Crear mockups y diseños
+        \item Proponer mejoras de flujo de trabajo
+        \item UX no es solo sobre aspectos visuales
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{Recuerda:} Incluso pequeñas sugerencias de UX pueden tener gran impacto}
+\end{frame}
+
+\subsection{Difundiendo la Palabra}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Escribir posts sobre proyectos que usas
+        \item Compartir historias de éxito
+        \item Presentar en conferencias y meetups
+        \item Promocionar en redes sociales
+    \end{itemize}
+    
+    \vspace{1em}
+    \uncover<5->{\textbf{¡Esta presentación} está difundiendo la palabra sobre jPOS, GSConnect, y otros!}
+\end{frame}
+
+\section{Empezando Hoy}
+
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item Elige un proyecto que ya uses
+        \item Comienza con documentación - es el punto de entrada más fácil
+        \item Suscríbete a notificaciones
+        \item Sé paciente y útil
+        \item \textbf{¡Solo empieza!} Las pequeñas contribuciones importan
+    \end{itemize}
+    
+    \vspace{2em}
+    \uncover<6->{\large\textbf{Ahora ¿Cuántos de los que respondieron que no han contribuido se dieron cuenta de que en realidad sí lo habían hecho?}}
+\end{frame}
+
+\usebackgroundtemplate{}%
+\section{Contacto}
+\begin{frame}
+    \begin{center}
+        \vspace{1em}
+        \email{alcarraz@gmail.com}\\
+        \vspace{0.5em}
+        \linkedin{andresalcarraz}\\
+        \vspace{0.5em}
+        \twitter{andresalcarraz}\\
+        \vspace{0.5em}
+        \github{alcarraz}\\
+        \vspace{1em}
+        
+        \large\textbf{¡Gracias!}
+    \end{center}
+\end{frame}
+
+\section{¿Preguntas?}
+\begin{frame}
+    \centering
+    \includegraphics[height=0.8\textheight]{img/qr-code}
+\end{frame}
+
+\end{document}
