@@ -73,6 +73,11 @@ latexmk -c
 
 **Andrés Alcarraz**
 
+- 📧 Email: [alcarraz@gmail.com](mailto:alcarraz@gmail.com)
+- 💼 LinkedIn: [linkedin.com/in/andresalcarraz](https://www.linkedin.com/in/andresalcarraz)
+- 🐙 GitHub: [github.com/alcarraz](https://www.github.com/alcarraz)
+- 🐦 X (Twitter): [@andresalcarraz](https://x.com/users/andresalcarraz)
+
 ## License
 
 This presentation is available for educational and community use.
